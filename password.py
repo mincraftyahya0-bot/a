@@ -1,23 +1,13 @@
 import random
-
-lower = "abcdefghijklmnopqrstuvwxyz"
-upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-numbers = "0123456789"
-
-password = ""
-
-password += random.choice(lower)
-password += random.choice(upper)
-password += random.choice(numbers)
-
-characters = lower + upper + numbers
-
-for i in range(5):
-    password += random.choice(characters)
-
-password = list(password)
-random.shuffle(password)
-
-password = "".join(password)
-
-print("Password:", password)
+characters=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+          "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+          "1","2","3","4","5","6","7","8","9","0","!","@","#","$","%","^","&","*","(",")","-","+","=","_"]
+random.shuffle(characters)
+lenth=int(input("Enter the length of the password: "))
+password="".join(characters[0:lenth])
+print("Your password is: ", password)
+lock=input("enter your password to unlock: ")
+if lock==password:
+    print("Unlocked")
+else:
+    print("Nice try")
