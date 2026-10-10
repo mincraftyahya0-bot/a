@@ -33,15 +33,18 @@ class flashcards():
         return self.word+"("+self.meaning+")"
 flash=[]
 print("welcome to flashcard")
-while True :
-    w=input("enter word here :")
-    m=input("enter meaning here :")
+try:
+    while True :
+        w=input("enter word here :")
+        m=input("enter meaning here :")
 
-    flash.append(flashcards(w,m))
+        flash.append(flashcards(w,m))
 
-    opt=int(input("if you want to make another card,type 0 else,type 1 :"))
-    if opt:
-        break
+        opt=int(input("if you want to make another card,type 0 else,type 1 :"))
+        if opt:
+            break
+except EOFError:
+    print("\nNo more flashcards entered.")
 
 print("\n flashcards: \n")
 for i in flash:
@@ -57,7 +60,7 @@ class fruitquiz():
             print("what is the color of {}".format(fruit))
             inp=input()
 
-            if inp.lower == color:
+            if inp.lower() == color.lower():
                 print("correct")
             else:
                 print("wrong")
@@ -68,4 +71,7 @@ class fruitquiz():
                 break
 print("Welcome to fruitquiz")
 obj_fq=fruitquiz()
-obj_fq.quiz()
+try:
+    obj_fq.quiz()
+except EOFError:
+    print("\nFruit quiz ended early.")
