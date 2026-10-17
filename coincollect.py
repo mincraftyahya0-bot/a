@@ -2,7 +2,6 @@ import pygame
 import random
 import time
 pygame.init()
-coin_sound = pygame.mixer.Sound("coin.wav")
 
 scrw = 500
 scrh = 500
@@ -59,7 +58,6 @@ while running:
         score += 1
         x2 = random.randint(0, scrw - coin_size)
         y2 = random.randint(0, scrh - coin_size)
-        coin_sound.play()
 
     seconds_passed = int(time.time() - start_time)
     time_left = max(0, 60 - seconds_passed)
