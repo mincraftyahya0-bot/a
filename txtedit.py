@@ -15,15 +15,14 @@ def opnfle():
     with open(filepath,"r") as input_file:
         text=input_file.read()
         txt_edit.insert(END,text)
-        input_file.close
 def svefle():
-    filepath=asksaveasfilename(defaultextension="txt",filetypes=[("Text File","*.txt"),("All Files","*.*")])
+    filepath=asksaveasfilename(defaultextension=".txt",filetypes=[("Text File","*.txt"),("All Files","*.*")])
     if not filepath:
         return
     with open(filepath,"w") as output_file:
         text=txt_edit.get(1.0,END)
         output_file.write(text)
-    window.title(f"Txt Editr-{filepath}")
+    window.title(f"Text Editor - {filepath}")
 
 txt_edit=Text(window)
 fr_buttons=Frame(window,relief=RAISED,bd=2)
